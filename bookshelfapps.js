@@ -81,6 +81,7 @@ function addBook() {
 
 function EditBook() {
   const bukuId = document.getElementById('bookid').value;
+  console.log('Buku Id :'+bukuId);
   if(bukuId){
     removeBukuFromLocalStorage(bukuId);
   }
@@ -215,24 +216,24 @@ function makeBuku(objectBuku) {
           })
         });
      
-        // const editButton=document.createElement('button');
-        // editButton.innerHTML='<i class="fa-regular fa-edit"></i>';
-        // editButton.setAttribute('title','Edit');
-        // editButton.classList.add('btn-cek');
+        const editButton=document.createElement('button');
+        editButton.innerHTML='<i class="fa-regular fa-edit"></i>';
+        editButton.setAttribute('title','Edit');
+        editButton.classList.add('btn-cek');
 
-        // editButton.addEventListener('click', function () {
-        //   var modal = document.getElementById("myModalEdit");
-        //   var span = document.getElementsByClassName("close")[3];
+        editButton.addEventListener('click', function () {
+          var modal = document.getElementById("myModalEdit");
+          var span = document.getElementsByClassName("close")[3];
          
-        //   modal.style.display = "block";
-        //   ShowToEditBook(objectBuku.id);
+          modal.style.display = "block";
+          ShowToEditBook(objectBuku.id);
           
-        //   span.onclick = function() {
-        //     modal.style.display = "none";
-        //   }
-        // });
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+        });
         
-        // textContainer.append(undoButton, editButton, trashButton);
+        textContainer.append(undoButton, editButton, trashButton);
         textContainer.append(undoButton, trashButton);
       } else {
         const finishButton = document.createElement('button');
