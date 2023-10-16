@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>BooksHelfsApps</title>
+</head>
+<body>
+    <header>
+        <div class="d-navbar" id="d-navbar">
+            <div class="navbar-toggle">
+                <label for="toggle" id="toggle-label">
+                    <input type="checkbox" value="" name="toggle" id="toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="d-container">
+            <div class="d-sidebar" id="d-sidebar">
+                <div class="d-user-info" id="d-user-info">
+                    <div class="d-user-info-image">
+                        <img src="logo-abe-2.png" alt="">
+                    </div>
+                    <div class="d-user-info-detail" id="d-user-info-detail">
+                        <div class="d-user-info-name">BooksHelfsApps</div>
+                    </div>
+               
+                </div>
+                <div class="d-list-menu" id="d-list-menu">
+                    
+                    <li class="d-list-menu-link active"  id="listmenuaktif">
+                        <i class="fa-solid fa-house-chimney-window"></i>
+                        <a id="tooltips" href="dashboard.html">
+                            Home
+                        </a> 
+                    </li>
+                
+                    <li class="d-list-menu-link">
+                        <i class="fa-solid fa-book"></i><span></span>
+                        <a id="tooltips" class="tambah" >
+                            Tambah Data Buku
+                        </a> 
+                    </li>
+                    
+                    <li class="d-list-menu-link">
+                        <i class="fa-solid fa-id-card"></i><span></span>
+                        <a id="tooltips" class="profile">
+                            My Profil
+                        </a> 
+                    </li>
+                </div>
+            </div>
+    
+            <div class="d-content-container" id="d-content-container">
+                <div class="d-row d-flex">
+                    <h1 class="p-2">Daftar Buku Bacaan</h1>
+                </div>
+                <div class="d-row">
+                        <form id="searchBook" class="d-flex d-flex-gap-10-px">
+                            <div class="col-4 p-2">
+                                <input type="text" id="carijudul" name="carijudul" placeholder="Masukkan Kata kunci" >
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" class="button"  name="Submit" >Search</button>
+                            </div>
+                        </form>
+                </div>
+                <div class="d-row d-flex d-flex-gap-10-px">
+                    <div class="col-5">
+                        <div class="color-white item-container">
+                            
+                            <p><i class="fa-solid fa-book"></i> &nbsp;&nbsp; Rak Buku Yang Belum dibaca</p>
+                            <div class="mini-card-info-detail ">
+                                <div class="list-item" id="new-buku">
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="color-white item-container ">
+                            <p><i class="fa-solid fa-book-open"></i> &nbsp;&nbsp; Rak Buku Yang Sudah dibaca</p>
+                            <div class="mini-card-info-detail">
+                                <div class="list-item" id="completed-buku">
+                                </div>
+                                <div id="tombol"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+        </div>
+
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Rekam Data</h2>
+              </div>
+              <div class="modal-body">
+                <form action="" id="form">
+                    <div class="d-row">
+                        <label for="judul">Judul Buku</label>
+                        <input type="text" tabindex="1" name="judul" id="judul" required>
+                    </div>
+                    <div class="d-row">
+                        <label for="penulis">Penulis</label>
+                        <input type="text" tabindex="2" id="penulis" name="penulis" required>
+                    </div>
+                    <div class="d-row">
+                        <label for="tahun">Tahun</label>
+                        <input type="text" tabindex="3" id="tahun" name="tahun" required>
+                    </div>
+                    <div class="d-row">
+                        <button type="submit" value="Submit" name="Submit" class="button">Simpan</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+        
+
+        <div id="myModalDelete" class="modal">
+            <div class="modal-content-delete">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Delete</h2>
+              </div>
+              <div class="modal-body">
+                <form action="" id="form">
+                    <div class="d-row d-flex d-flex-space-between color-text-white">
+                        <p>Yakin akan hapus data?</p>
+                        <button id="hapus" class="button bg-yes">Ya</button>
+                        <button id="tidak" class="button bg-delete">Tidak</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+
+        <div id="myModalProfile" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>My Profile</h2>
+              </div>
+              <div class="modal-body">
+                <article id="profil" class="profil" >
+                    <section class="d-flex d-flex-center-column">
+                        <h2>Abuzar Gafari</h2>
+                        <p>Pranata Komputer Ahli Pertama Kantor Kementerian Agama Kota Payakumbuh</p>
+                        <figure>
+                          <img src="profile_foto.png" class="img-bulat" alt="Foto Profil">
+                        </figure>
+                        <p>e-mail : gafariabuzar.2@gmail.com</p>
+                    </section>
+                </article>
+              </div>
+            </div>
+        </div>
+
+        <div id="myModalEdit" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Update Data</h2>
+              </div>
+              <div class="modal-body">
+                <form action="" id="form-edit">
+                    <div class="d-row">
+                        <label for="judul-edit">Judul Buku</label>
+                        <input type="text" tabindex="1" name="judul-edit" id="judul-edit" required>
+                        <input type="text" name="bookid" id="bookid" required>
+                        <input type="text" name="iscompleted" id="iscompleted" required>
+                    </div>
+                    <div class="d-row">
+                        <label for="penulis-edit">Penulis</label>
+                        <input type="text" tabindex="2" id="penulis-edit" name="penulis-edit" required>
+                    </div>
+                    <div class="d-row">
+                        <label for="tahun-edit">Tahun</label>
+                        <input type="text" tabindex="3" id="tahun-edit" name="tahun-edit" required>
+                    </div>
+                    <div class="d-row">
+                        <button type="submit" value="Submit" name="Submit" class="button">Simpan</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </main>
+  
+    <footer>
+        <div class="d-footer" id="d-footer">
+            <div class="d-footer-information">
+                Copyright © <script> document.write(new Date().getFullYear())</script> Abuzar Gafari
+            </div>
+        </div>
+    </footer>
+    <script src="newadminscript.js"></script>
+    <script src="bookshelfapps.js"></script>
+    <!-- <script src="norightclick.js"></script> -->
+</body>
+</html>
