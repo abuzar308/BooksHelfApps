@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 judul.focus();
             }
     });
+
     submitFormEdit.addEventListener('submit', function (event) {
         event.preventDefault();
         
@@ -46,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 EditBook();
                 hapusDataForm();
-                judul.focus();
                 var modalEdit=document.getElementById('myModalEdit');
                 modalEdit.style.display = "none";
             }
