@@ -28,3 +28,6 @@ Berikut sedikit tampilan dari aplikasi tersebut, semoga bermanfaat :
 
 ![gambar](https://github.com/abuzar308/BooksHelfApps/assets/66105578/950fd897-9bc8-479d-8831-6c6cde8aa135)
 
+
+Semoga bermanfaat bagi teman teman yang sedang belajar. 
+
