@@ -5,7 +5,7 @@ const STORAGE_KEY = 'BOOKSHELF_APPS';
 
 document.addEventListener('DOMContentLoaded', function () {
     const submitForm = document.getElementById('form');
-    const submitFormEdit = document.getElementById('form-edit');
+    // const submitFormEdit = document.getElementById('form-edit');
     const inputSearchBook = document.getElementById("searchBook");
     const inputTahun=document.getElementById('tahun');
     const judul=document.getElementById('judul');
@@ -39,18 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
     });
 
-    submitFormEdit.addEventListener('submit', function (event) {
-        event.preventDefault();
+    // submitFormEdit.addEventListener('submit', function (event) {
+    //     event.preventDefault();
         
-        let saveData=confirm("Update Data ke Local Storage?");
-            if(saveData)
-            {
-                EditBook();
-                hapusDataForm();
-                var modalEdit=document.getElementById('myModalEdit');
-                modalEdit.style.display = "none";
-            }
-    });
+    //     let saveData=confirm("Update Data ke Local Storage?");
+    //         if(saveData)
+    //         {
+    //             EditBook();
+    //             hapusDataForm();
+    //             var modalEdit=document.getElementById('myModalEdit');
+    //             modalEdit.style.display = "none";
+    //         }
+    // });
 
 
     if (isStorageExist()) {
@@ -81,10 +81,7 @@ function addBook() {
 
 function EditBook() {
   const bukuId = document.getElementById('bookid').value;
-  console.log('Buku Id :'+bukuId);
-  if(bukuId){
-    removeBukuFromLocalStorage(bukuId);
-  }
+  // removeBukuFromLocalStorage(bukuId);
     
   const judul = document.getElementById('judul-edit').value;
   const penulis = document.getElementById('penulis-edit').value;
@@ -231,10 +228,21 @@ function makeBuku(objectBuku) {
           span.onclick = function() {
             modal.style.display = "none";
           }
+
+          const submitEdit=document.getElementById('submit-edit');
+          if(submitEdit)
+          {
+            removeBukuFromLocalStorage(objectBuku.id);
+          }
+          submitEdit.addEventListener('click',()=>{
+            EditBook();
+            document.dispatchEvent(new Event(RENDER_EVENT));
+            saveData();
+          })
+
         });
         
         textContainer.append(undoButton, editButton, trashButton);
-        textContainer.append(undoButton, trashButton);
       } else {
         const finishButton = document.createElement('button');
         finishButton.classList.add('btn-cek');
@@ -286,6 +294,16 @@ function makeBuku(objectBuku) {
           span.onclick = function() {
             modal.style.display = "none";
           }
+          const submitEdit=document.getElementById('submit-edit');
+          if(submitEdit)
+          {
+            removeBukuFromLocalStorage(objectBuku.id);
+          }
+          submitEdit.addEventListener('click',()=>{
+            EditBook();
+            // document.dispatchEvent(new Event(RENDER_EVENT));
+            // saveData();
+          })
         });
 
         textContainer.append(finishButton, editButton, trashButton );
