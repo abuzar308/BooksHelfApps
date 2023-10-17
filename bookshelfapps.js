@@ -5,7 +5,6 @@ const STORAGE_KEY = 'BOOKSHELF_APPS';
 
 document.addEventListener('DOMContentLoaded', function () {
     const submitForm = document.getElementById('form');
-    // const submitFormEdit = document.getElementById('form-edit');
     const inputSearchBook = document.getElementById("searchBook");
     const inputTahun=document.getElementById('tahun');
     const judul=document.getElementById('judul');
@@ -39,20 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
     });
 
-    // submitFormEdit.addEventListener('submit', function (event) {
-    //     event.preventDefault();
-        
-    //     let saveData=confirm("Update Data ke Local Storage?");
-    //         if(saveData)
-    //         {
-    //             EditBook();
-    //             hapusDataForm();
-    //             var modalEdit=document.getElementById('myModalEdit');
-    //             modalEdit.style.display = "none";
-    //         }
-    // });
-
-
     if (isStorageExist()) {
       loadDataFromStorage();
     }
@@ -81,7 +66,6 @@ function addBook() {
 
 function EditBook() {
   const bukuId = document.getElementById('bookid').value;
-  // removeBukuFromLocalStorage(bukuId);
     
   const judul = document.getElementById('judul-edit').value;
   const penulis = document.getElementById('penulis-edit').value;
@@ -236,8 +220,6 @@ function makeBuku(objectBuku) {
           }
           submitEdit.addEventListener('click',()=>{
             EditBook();
-            document.dispatchEvent(new Event(RENDER_EVENT));
-            saveData();
           })
 
         });
@@ -301,8 +283,6 @@ function makeBuku(objectBuku) {
           }
           submitEdit.addEventListener('click',()=>{
             EditBook();
-            // document.dispatchEvent(new Event(RENDER_EVENT));
-            // saveData();
           })
         });
 
